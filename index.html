@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,46 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Tic Tac Toe</h1>
+
+      <!-- Tic Tac Toe Board -->
+
+
+      <!-- Sign up button -->
+      <form id="sign-up-form">
+        <input name="credentials[email]" type="email" placeholder="Email">
+        <input name="credentials[password]" type="password" placeholder="Password">
+        <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password">
+        <button type="submit">Sign up</button>
+      </form><br>
+
+      <!-- Sign in button -->
+      <form id="sign-in-form">
+        <input name="credentials[email]" type="text" placeholder="Email">
+        <input name="credentials[password]" type="password" placeholder="Password">
+        <button type="submit">Sign In</button>
+      </form><br>
+          
+      <!-- Sign Out button -->
+      <form id="sign-out-form">
+        <!-- <input name="credentials[email]" type="text" value="an@example.email">
+        <input name="credentials[password]" type="password" value="an example password"> -->
+        <button type="submit">Sign Out</button>
+      </form><br>
+
+      <!-- New Game Button -->
+      <form id="new-game">
+        <button type="submit">New Game</button>
+      </form>
+
+      <section id="auth-display"></section>
+
     </body>
+
+<!-- This is going to be single page application -->
+<!-- Need sign up and sign in buttons to create SPA popup window with form input -->
+<!-- show and hide methods -->
+
+
+
 </html>
