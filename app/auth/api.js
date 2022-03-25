@@ -14,7 +14,18 @@ const signIn = function (data) {
     return $.ajax({
         method: 'POST',
         url: 'https://tic-tac-toe-api-development.herokuapp.com/sign-in',
-        data: data
+        data
+    })
+}
+
+const changePassword = function (data) {
+    return $.ajax({
+        method: 'PATCH',
+        url: 'https://tic-tac-toe-api-development.herokuapp.com/change-password',
+        headers: {
+            Authorization: 'Bearer ' + store.user.token
+        },
+        data
     })
 }
 
@@ -31,5 +42,6 @@ const signOut = function () {
 module.exports = {
     signUp,
     signIn,
+    changePassword,
     signOut
 }

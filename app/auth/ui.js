@@ -15,20 +15,29 @@ const onSignInSuccess = function (response) {
     $('#auth-display').html('<p>User sign in successful!</p>')
     $('form').trigger('reset')
     console.log(response)
-    // store data of my response in my store object
-    // store.user = response.user
+    store.user = response.user
 }
 
 const onSignInFailure = function () {
     $('#auth-display').html('<p>Error when signing in</p>')
 }
 
+const onChangePasswordSuccess = function () {
+    $('#auth-display').html('<p>Password changed successfully!</p>')
+    $('form').trigger('reset')
+    // console.log(response)
+    // store.user = response.user
+}
+
+const onChangePasswordFailure = function () {
+    $('#auth-display').html('<p>Error when changing password</p>')
+}
+
 const onSignOutSuccess = function (response) {
     $('#auth-display').html('<p>Sign out successful!</p>')
     $('form').trigger('reset')
 
-    // store data of my response in my store object
-    store.user = null
+    // store.user = null
 }
 
 const onSignOutFailure = function () {
@@ -40,6 +49,8 @@ module.exports = {
     onSignUpFailure,
     onSignInSuccess,
     onSignInFailure,
+    onChangePasswordSuccess,
+    onChangePasswordFailure,
     onSignOutSuccess,
     onSignOutFailure
 }

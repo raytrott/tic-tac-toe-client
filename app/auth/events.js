@@ -28,8 +28,21 @@ function (event) {
     console.log(data)
 
     authApi.signIn(data)
-        .then(() => authUi.onSignInSuccess())
+        .then((response) => authUi.onSignInSuccess(response))
         .catch(() => authUi.onSignInFailure())
+}
+
+const onChangePassword =
+function (event) {
+    event.preventDefault()
+
+    const form = event.target
+    const data = getFormFields(form)
+    console.log(data)
+
+    authApi.changePassword(data)
+        .then(() => authUi.onChangePasswordSuccess())
+        .catch(() => authUi.onChangePasswordFailure())
 }
 
 const onSignOut =
@@ -43,5 +56,6 @@ function () {
 module.exports = {
     onSignUp,
     onSignIn,
+    onChangePassword,
     onSignOut
 }
