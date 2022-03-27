@@ -3,7 +3,7 @@
 const store = require('../store.js')
 
 const onSignUpSuccess = function () {
-    $('#auth-display').html('<p>User sign up successful!</p>')
+    $('#auth-display').html('<p>User sign up successful! User not signed in, please make sure to do so before proceeding.</p>')
     $('form').trigger('reset')
 }
 
@@ -14,6 +14,7 @@ const onSignUpFailure = function () {
 const onSignInSuccess = function (response) {
     $('#auth-display').html('<p>User sign in successful!</p>')
     $('form').trigger('reset')
+    $('#new-game-button').show()
     console.log(response)
     store.user = response.user
 }
@@ -33,11 +34,9 @@ const onChangePasswordFailure = function () {
     $('#auth-display').html('<p>Error when changing password</p>')
 }
 
-const onSignOutSuccess = function (response) {
+const onSignOutSuccess = function () {
     $('#auth-display').html('<p>Sign out successful!</p>')
     $('form').trigger('reset')
-
-    // store.user = null
 }
 
 const onSignOutFailure = function () {

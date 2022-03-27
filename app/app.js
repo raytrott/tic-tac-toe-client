@@ -7,6 +7,7 @@
 // require('./example')
 
 const authEvents = require('./auth/events.js')
+const gamesEvents = require('./games/events.js')
 
 $(() => {
   $('#sign-up-form').on('submit', authEvents.onSignUp)
@@ -23,3 +24,21 @@ $(() => {
 $(() => {
   $('#sign-out-button').on('click', authEvents.onSignOut)
 })
+
+$(() => {
+  $('#game-board').hide()
+})
+
+$(() => {
+  $('#new-game-button').hide()
+})
+
+$(() => {
+    $('#new-game-button').on('click', gamesEvents.onNewGame)
+  })
+
+// on div square .on click userChange
+// userChange if user.__v = 0, then return user.__v = 1 OR if user.__v = 1, then return user.__v = 0
+
+// if __v = 0, on click game.cell.value = "x"
+// if __v = 1, on click game.cell.value = "o"

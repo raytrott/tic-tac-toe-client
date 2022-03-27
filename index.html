@@ -13,9 +13,40 @@
     </head>
     <body>
       <h1>Tic Tac Toe</h1>
+      <h3>How to Play</h3>
+      <p>First player to get 3 in a row wins!<br>
+        If no player gets 3 in a row, game is a tie.<br><br>
+        To start a new game, <strong>first</strong> create an account, <strong>then</strong> sign in.<br>
+        Then click the New Game button below to launch the game!<br>
+        X goes first, O goes second.<br>
+      </p>
 
+
+      <!-- Game Display -->
+      <section id="game-display"></section>
+      
       <!-- Tic Tac Toe Board -->
+      <div id="game-board">
+        <p><strong>A new game appeared!</strong><br><br>
+        |0|1|2|<br>
+        |3|4|5|<br>
+        |6|7|8|<br>
+        </p>
+        <div data-cell-index='0'>0</div>
+        <div data-cell-index='1'>1</div>
+        <div data-cell-index='2'>2</div><br>
+        <div data-cell-index='3'>3</div>
+        <div data-cell-index='4'>4</div>
+        <div data-cell-index='5'>5</div><br>
+        <div data-cell-index='6'>6</div>
+        <div data-cell-index='7'>7</div>
+        <div data-cell-index='8'>8</div>
+      </div>
 
+      <!-- <section id="new-game"></section> -->
+      <button id="new-game-button">New Game</button><br><br><br>
+
+      <h3>Account Management</h3>
 
       <form id="sign-up-form">
         <input name="credentials[email]" type="email" placeholder="Email">
@@ -37,10 +68,6 @@
       </form><br>
 
       <button id="sign-out-button">Sign Out</button><br><br>
-
-      <form id="new-game">
-        <button type="submit">New Game</button>
-      </form>
 
       <section id="auth-display"></section>
 
