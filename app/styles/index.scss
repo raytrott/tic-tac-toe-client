@@ -1,11 +1,20 @@
-@import '~bootstrap/scss/bootstrap';
-
-// .hidden {
-//     display: none;
-// }
+// @import '~bootstrap/scss/bootstrap';
+@import '../../node_modules/bootstrap/scss/bootstrap';
 
 body {
-    background-color: lightslategrey;
+    background-color: lightslategray;
     margin: 25px;
-    // color: white;
+    text-align: center;
+    color: white;
+}
+
+#game-board {
+    display: grid;
+    width: 300px;
+    height: 300px;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
 }

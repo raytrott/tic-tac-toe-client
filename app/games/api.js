@@ -13,8 +13,20 @@ const newGame = function () {
     })
 }
 
+const chooseSquare = function (playerMove) {
+    return $.ajax({
+        method: 'PATCH',
+        url: 'https://tic-tac-toe-api-development.herokuapp.com/games/:id',
+        headers: {
+            Authorization: 'Bearer ' + store.user.token
+        },
+        body: playerMove
+    })
+}
+
 module.exports = {
-    newGame
+    newGame,
+    chooseSquare
 }
 
 // 

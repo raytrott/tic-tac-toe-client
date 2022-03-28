@@ -12,7 +12,21 @@ const onNewGameFailure = function () {
     $('#game-display').html('<p>Error launching game. Make sure you create an account and sign in.</p>')
 }
 
+const onChooseSquareSuccess = function (square) {
+    $('#game-display').html('<p>Player 1 has chosen! Player 2s turn!</p>')
+    // store.game = response.game
+    square.classList.add('occupied')
+    square.text('X')
+
+}
+
+const onChooseSquareFailure = function () {
+    $('#game-display').html('<p>Error: could not place square.</p>')
+}
+
 module.exports = {
     onNewGameSuccess,
-    onNewGameFailure
+    onNewGameFailure,
+    onChooseSquareSuccess,
+    onChooseSquareFailure
 }

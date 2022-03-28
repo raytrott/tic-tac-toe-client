@@ -10,44 +10,49 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script src="./app/app.js"></script>
+      <link rel="stylesheet" type="text/css" href="./app/styles/index.css"/>
     </head>
     <body>
-      <h1>Tic Tac Toe</h1>
+      <h1>Tic Tac Toe!</h1>
       <h3>How to Play</h3>
       <p>First player to get 3 in a row wins!<br>
         If no player gets 3 in a row, game is a tie.<br><br>
         To start a new game, <strong>first</strong> create an account, <strong>then</strong> sign in.<br>
         Then click the New Game button below to launch the game!<br>
         X goes first, O goes second.<br>
-      </p>
+      </p><br>
 
 
       <!-- Game Display -->
-      <section id="game-display"></section>
+      <section id="game-display"></section><br>
       
       <!-- Tic Tac Toe Board -->
-      <div id="game-board">
-        <p><strong>A new game appeared!</strong><br><br>
-        |0|1|2|<br>
-        |3|4|5|<br>
-        |6|7|8|<br>
-        </p>
-        <div data-cell-index='0'>0</div>
-        <div data-cell-index='1'>1</div>
-        <div data-cell-index='2'>2</div><br>
-        <div data-cell-index='3'>3</div>
-        <div data-cell-index='4'>4</div>
-        <div data-cell-index='5'>5</div><br>
-        <div data-cell-index='6'>6</div>
-        <div data-cell-index='7'>7</div>
-        <div data-cell-index='8'>8</div>
+      <div class="container" id="game-board">
+        <!-- 
+        |0|1|2|
+        |3|4|5|
+        |6|7|8| -->
+        <div class="row">
+          <div id="0" class="col-4 box border border-top-0 border-start-0 border-4" data-cell-index="0"></div>
+          <div id="1" class="col-4 box border border-top-0 border-4" data-cell-index="1"></div>
+          <div id="2" class="col-4 box border border-top-0 border-end-0 border-4" data-cell-index="2"></div><br>
+          <div id="3" class="col-4 box border border-start-0 border-4" data-cell-index="3"></div>
+          <div id="4" class="col-4 box border border-4" data-cell-index="4"></div>
+          <div id="5" class="col-4 box border border-end-0 border-4" data-cell-index="5"></div><br>
+          <div id="6" class="col-4 box border border-bottom-0 border-start-0 border-4" data-cell-index="6"></div>
+          <div id="7" class="col-4 box border border-bottom-0 border-4" data-cell-index="7"></div>
+          <div id="8" class="col-4 box border border-bottom-0 border-end-0 border-4" data-cell-index="8"></div>
+        </div>
+
       </div>
 
       <!-- <section id="new-game"></section> -->
-      <button id="new-game-button">New Game</button><br><br><br>
+      <br><br><button id="new-game-button">New Game</button><br><br><br>
 
-      <h3>Account Management</h3>
-
+      <h3>Account Management</h3><br>
+      <h4>Sign Up</h4>
       <form id="sign-up-form">
         <input name="credentials[email]" type="email" placeholder="Email">
         <input name="credentials[password]" type="password" placeholder="Password">
@@ -55,18 +60,20 @@
         <button type="submit">Sign up</button>
       </form><br>
 
+      <h4>Sign In</h4>
       <form id="sign-in-form">
         <input name="credentials[email]" type="email" placeholder="Email">
         <input name="credentials[password]" type="password" placeholder="Password">
         <button type="submit">Sign In</button>
       </form><br>
     
+      <h4>Change Password</h4>
       <form id="change-password-form">
         <input name="passwords[old]" type="password" placeholder="Current password">
         <input name="passwords[new]" type="password" placeholder="New password">
         <button type="submit">Change Password</button>
-      </form><br>
-
+      </form><br><br>
+      <h4>Account Sign Out</h4>
       <button id="sign-out-button">Sign Out</button><br><br>
 
       <section id="auth-display"></section>

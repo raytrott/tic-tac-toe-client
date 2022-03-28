@@ -7,7 +7,7 @@ const getFormFields = require('../../lib/get-form-fields.js')
 const onSignUp = 
 function (event) {
     event.preventDefault()
-    console.log('calling onSignUp')
+    console.log('signing up')
 
     const form = event.target
     const data = getFormFields(form)
@@ -21,7 +21,7 @@ function (event) {
 const onSignIn =
 function (event) {
     event.preventDefault()
-    console.log('calling onSignIn')
+    console.log('signing in')
 
     const form = event.target
     const data = getFormFields(form)
