@@ -6,7 +6,7 @@ const config = require('../config.js')
 const newGame = function () {
     return $.ajax({
         method: 'POST',
-        url: 'https://tic-tac-toe-api-development.herokuapp.com/games',
+        url: config.apiUrl + '/games',
         headers: {
             Authorization: 'Bearer ' + store.user.token
         },
@@ -17,7 +17,7 @@ const newGame = function () {
 const chooseSquare = function (playerMove) {
     return $.ajax({
         method: 'PATCH',
-        url: 'https://tic-tac-toe-api-development.herokuapp.com/games/' + store.gameId,
+        url: config.apiUrl + '/games/' + store.gameId,
         headers: {
             Authorization: 'Bearer ' + store.user.token
         },
