@@ -16,11 +16,11 @@ const newGame = function () {
 const chooseSquare = function (playerMove) {
     return $.ajax({
         method: 'PATCH',
-        url: 'https://tic-tac-toe-api-development.herokuapp.com/games/:id',
+        url: 'https://tic-tac-toe-api-development.herokuapp.com/games/' + store.gameId,
         headers: {
             Authorization: 'Bearer ' + store.user.token
         },
-        body: playerMove
+        data: playerMove
     })
 }
 
@@ -28,5 +28,3 @@ module.exports = {
     newGame,
     chooseSquare
 }
-
-// 

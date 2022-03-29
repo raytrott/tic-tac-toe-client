@@ -25,7 +25,7 @@ const changePassword = function (data) {
         headers: {
             Authorization: 'Bearer ' + store.user.token
         },
-        data
+        data: data
     })
 }
 

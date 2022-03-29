@@ -40,9 +40,3 @@ $(() => {
 $(() => {
   $('.box').on('click', gamesEvents.onChooseSquare)
 })
-
-// on div square .on click userChange
-// userChange if user.__v = 0, then return user.__v = 1 OR if user.__v = 1, then return user.__v = 0
-
-// if __v = 0, on click game.cell.value = "x"
-// if __v =1, on click game.cell.value = "o"

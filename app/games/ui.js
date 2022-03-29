@@ -6,6 +6,9 @@ const onNewGameSuccess = function (response) {
     $('#game-display').html('<p><i>Game initialized!</i></p>')
     $('#game-board').show()
     store.game = response.game
+    store.gameId = response.game._id
+    console.log(store.game)
+    console.log(store.gameId)
 }
 
 const onNewGameFailure = function () {
@@ -13,11 +16,7 @@ const onNewGameFailure = function () {
 }
 
 const onChooseSquareSuccess = function (square) {
-    $('#game-display').html('<p>Player 1 has chosen! Player 2s turn!</p>')
-    // store.game = response.game
-    square.classList.add('occupied')
-    square.text('X')
-
+    $('#game-display').html('<p>Player 1 has chosen! Player 2\'s turn!</p>')
 }
 
 const onChooseSquareFailure = function () {

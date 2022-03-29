@@ -2,7 +2,6 @@
 
 const gamesUi = require('./ui.js')
 const gamesApi = require('./api.js')
-// const getFormFields = require('../../lib/get-form-fields.js')
 
 const onNewGame =
 function () {
@@ -18,29 +17,33 @@ function (event) {
 
     const square = event.target
     console.log(square)
+    const squareNum = square.dataset.cellIndex
+    console.log(squareNum)
+    // square.['data-cell-index']
+
+    const playerMove = {
+        "game": {
+          "cell": {
+            "index": squareNum,
+            "value": 'x'
+          },
+          "over": false
+        }
+      }   
+    
+    console.log(playerMove)
 
     if (square.classList.contains('occupied')) {
         $('#game-display').html('<p>Square occupied.</p>')
     } else {
-        const playerMove = {
-            'game': {
-              'cell': {
-                'index': square['data-cell-index'],
-                'value': 'x'
-              },
-              'over': false
-            }
-          }    
+        square.classList.add('occupied')
+        square.textContent = "X"
         gamesApi.chooseSquare(playerMove)
-        .then((square) => gamesUi.onChooseSquareSuccess(square))
+        .then(() => gamesUi.onChooseSquareSuccess())
         .catch(() => gamesUi.onChooseSquareFailure())
     }
-}
 
-//     if (indexOf()
-//     // first check space is empty
-//     // if empty then add token to board and game cells array
-//     // else nothing
+}
 
 module.exports = {
     onNewGame,
