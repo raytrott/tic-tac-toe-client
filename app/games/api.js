@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
+const config = require('../config.js')
 
 const newGame = function () {
     return $.ajax({
@@ -9,7 +10,7 @@ const newGame = function () {
         headers: {
             Authorization: 'Bearer ' + store.user.token
         },
-        body: {}
+        data: {}
     })
 }
 

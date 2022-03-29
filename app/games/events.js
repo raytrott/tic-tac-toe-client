@@ -2,6 +2,7 @@
 
 const gamesUi = require('./ui.js')
 const gamesApi = require('./api.js')
+const store = require('../store.js')
 
 const onNewGame =
 function () {
@@ -16,33 +17,29 @@ function (event) {
     console.log('clicking square')
 
     const square = event.target
-    console.log(square)
     const squareNum = square.dataset.cellIndex
-    console.log(squareNum)
-    // square.['data-cell-index']
-
+    
     const playerMove = {
         "game": {
           "cell": {
             "index": squareNum,
-            "value": 'x'
+            "value": store.currentPlayer
           },
           "over": false
         }
       }   
-    
+
     console.log(playerMove)
 
     if (square.classList.contains('occupied')) {
         $('#game-display').html('<p>Square occupied.</p>')
     } else {
         square.classList.add('occupied')
-        square.textContent = "X"
+        square.textContent = store.currentPlayer
         gamesApi.chooseSquare(playerMove)
-        .then(() => gamesUi.onChooseSquareSuccess())
+        .then((response) => gamesUi.onChooseSquareSuccess(response))
         .catch(() => gamesUi.onChooseSquareFailure())
     }
-
 }
 
 module.exports = {
