@@ -26,6 +26,23 @@ To play the deployed version of this game at its online location, [click here](h
 1. Open in your code editor to make contributions. Then push those to your clone with `git push origin response` and submit a pull request.
 1. To run the application and play locally, use `grunt serve`.
 
+## Planning
+
+#### Wireframe
+
+In the planning of this process, I created a wireframe which can be viewed [here](https://i.imgur.com/d1zBoHT.jpg).
+
+#### User Stories
+
+Some user stories for this project:
+
+- As a user, I can sign up with my email address so that I have an account and can come back and play again.
+- As a user, I can sign into my account so that my gameplay/scores are tied to my account.
+- As a user, I can choose whether I want to be X's or O's.
+- As a user, I can successfully win the game so that I can satisfy my competitive nature.
+- As a user, I can see how many times I've won or lost.
+- As a user, I can change my game choice if I change my mind because I like to second guess myself.
+
 ## About
 
 Thanks for checking out my work! My name is Ray and I'm an aspiring software engineer currently studying in General Assembly's full-time software engineering program. 
