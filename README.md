@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A timeless classic, it practically needs no introduction! Read on for installation and game instructions.
+A timeless classic, it practically needs no introduction! Read on for game instructions and installation.
 
 ## How To Play
 
