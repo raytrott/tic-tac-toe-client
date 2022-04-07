@@ -5,9 +5,12 @@ const store = require('../store.js')
 const onNewGameSuccess = function (response) {
     $('#game-display').html('<h4><i>Game initialized!</i></h4><p>X goes first!</p>')
     $('#game-board').show()
+    $('.box').on('click')
     store.game = response.game
     store.gameId = response.game._id
+    store.game.cells = response.game.cells
     store.currentPlayer = 'X'
+    console.log(store.game)
 }
 
 const onNewGameFailure = function () {
@@ -15,10 +18,11 @@ const onNewGameFailure = function () {
 }
 
 const onChooseSquareSuccess = function (response) {
-    $('#game-display').html('<h4>' + store.currentPlayer + ' has chosen!</h4><p>Next turn!</p>')
     store.game = response.game
     if (store.game.__v >= 9) {
-        $('#game-display').html('<h4>Game Over!</h4><p>No available squares left. </p>')
+        $('#game-display').html('<h4>Draw!</h4><p>Game over.</p>')
+        $('.box').off('click')
+        store.game.over = true
     } else if (store.game.__v % 2 === 0) {
         store.currentPlayer = 'X'
     } else {
