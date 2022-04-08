@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
+const checkForWin = require('./events.js')
 
 const onNewGameSuccess = function (response) {
     $('#game-display').html('<h4><i>Game initialized!</i></h4><p>X goes first!</p>')
@@ -19,11 +20,9 @@ const onNewGameFailure = function () {
 
 const onChooseSquareSuccess = function (response) {
     store.game = response.game
-    if (store.game.__v >= 9) {
-        $('#game-display').html('<h4>Draw!</h4><p>Game over.</p>')
-        $('.box').off('click')
-        store.game.over = true
-    } else if (store.game.__v % 2 === 0) {
+    store.game.__v = response.game.__v
+
+    if (store.game.__v % 2 === 0) {
         store.currentPlayer = 'X'
     } else {
         store.currentPlayer = 'O'

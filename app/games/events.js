@@ -6,20 +6,44 @@ const store = require('../store.js')
 
 let gameBoard = ['', '', '', '', '', '', '', '', '', '']
 
+
+let playerMove = {
+  "game": {
+    "cell": {
+      "index": null,
+      "value": null
+    },
+  "over": false
+  }
+}   
+
+// const startNewGame = function () {
+//   $('.box').on('click')
+// }
+
 const onNewGame = function () {
     console.log('launching new game')
-    gamesApi.newGame()
-    .then((response) => gamesUi.onNewGameSuccess(response))
-    .catch(() => gamesUi.onNewGameFailure())
+
     gameBoard = ['', '', '', '', '', '', '', '', '', '']
+    playerMove.game.over = false
+
     $('.box').empty()
     $('.box').on('click')
     $('.box').removeClass('occupied')
+
+    // startNewGame()
+    gamesApi.newGame()
+    .then((response) => gamesUi.onNewGameSuccess(response))
+    .catch(() => gamesUi.onNewGameFailure())
 }
 
 const gameOver = function () {
-  $('.box').off('click')
-  store.game.over = true
+  $('.box').on('click')
+  playerMove.game.over = true
+}
+
+const gameIsOver = () => {
+  console.log('done')
 }
 
 const checkForWin = function () {
@@ -31,13 +55,7 @@ const checkForWin = function () {
     (gameBoard[1] === 'X' && gameBoard[4] === 'X' && gameBoard[7] === 'X') ||
     (gameBoard[2] === 'X' && gameBoard[5] === 'X' && gameBoard[8] === 'X') ||
     (gameBoard[0] === 'X' && gameBoard[4] === 'X' && gameBoard[8] === 'X') ||
-    (gameBoard[2] === 'X' && gameBoard[4] === 'X' && gameBoard[6] === 'X')
-  ) {
-    gameOver()
-    $('#game-display').html('<h4>' + store.currentPlayer + ' wins!</h4><p>Game over.</p>')
-    console.log(store.game)
-  }
-  if (
+    (gameBoard[2] === 'X' && gameBoard[4] === 'X' && gameBoard[6] === 'X') ||
     (gameBoard[0] === 'O' && gameBoard[1] === 'O' && gameBoard[2] === 'O') ||
     (gameBoard[3] === 'O' && gameBoard[4] === 'O' && gameBoard[5] === 'O') ||
     (gameBoard[6] === 'O' && gameBoard[7] === 'O' && gameBoard[8] === 'O') ||
@@ -47,17 +65,13 @@ const checkForWin = function () {
     (gameBoard[0] === 'O' && gameBoard[4] === 'O' && gameBoard[8] === 'O') ||
     (gameBoard[2] === 'O' && gameBoard[4] === 'O' && gameBoard[6] === 'O')
   ) {
-    gameOver()
     $('#game-display').html('<h4>' + store.currentPlayer + ' wins!</h4><p>Game over.</p>')
-    console.log(store.game)
-  }
-}
-
-const checkForDraw = function () {
-  if (gameBoard.every(val => val == 'X' || val == 'O')) {
     gameOver()
+  } else if ((store.game.__v === 8) && (playerMove.game.over !== true)) {
     $('#game-display').html('<h4>Tie!</h4><p>Game over.</p>')
-    console.log(store.game)
+    gameOver()
+  } else {
+    console.log('keep playing')
   }
 }
 
@@ -65,36 +79,26 @@ const onChooseSquare = function (event) {
   console.log('clicking square')
   const square = event.target
   const squareNum = square.dataset.cellIndex
-  const gameIsOver = function () {
-    if (store.game.__v >= 9) {
-      return true
-    } else {
-      return false
-    }
-  }
-  const playerMove = {
-    "game": {
-      "cell": {
-        "index": squareNum,
-        "value": store.currentPlayer
-      },
-    "over": gameIsOver
-    }
-  }   
+
+  playerMove.game.cell.index = squareNum
+  playerMove.game.cell.value = store.currentPlayer
 
   console.log(playerMove)
+
   if (square.classList.contains('occupied')) {
     $('#game-display').html('<h4>Square occupied.</h4><p>Go again!</p>')
   } else {
-    $('#game-display').html('<h4>' + store.currentPlayer + ' has chosen!</h4><p>Next turn!</p>')
-    gameBoard[squareNum] = store.currentPlayer  
+    gameBoard[squareNum] = store.currentPlayer
     square.textContent = store.currentPlayer
     square.classList.add('occupied')
+
+    $('#game-display').html('<h4>' + store.currentPlayer + ' has chosen!</h4><p>Next turn!</p>')
+
+    checkForWin()
+
     gamesApi.chooseSquare(playerMove)
     .then((response) => gamesUi.onChooseSquareSuccess(response))
     .catch(() => gamesUi.onChooseSquareFailure())
-    checkForWin()
-    checkForDraw()
   }
 }
 
@@ -102,6 +106,6 @@ module.exports = {
     onNewGame,
     onChooseSquare,
     checkForWin,
-    checkForDraw,
-    gameOver
+    gameOver,
+    // startNewGame
 }
