@@ -22,5 +22,4 @@ $(() => {
 // Game
 $(() => {
   $('#new-game-button').on('click', gamesEvents.onNewGame)
-  $('.box').on('click', gamesEvents.onChooseSquare)
 })

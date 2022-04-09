@@ -17,33 +17,24 @@ let playerMove = {
   }
 }   
 
-// const startNewGame = function () {
-//   $('.box').on('click')
-// }
-
 const onNewGame = function () {
     console.log('launching new game')
 
     gameBoard = ['', '', '', '', '', '', '', '', '', '']
     playerMove.game.over = false
 
+    $('.box').on('click', onChooseSquare)
     $('.box').empty()
-    $('.box').on('click')
     $('.box').removeClass('occupied')
 
-    // startNewGame()
     gamesApi.newGame()
     .then((response) => gamesUi.onNewGameSuccess(response))
     .catch(() => gamesUi.onNewGameFailure())
 }
 
 const gameOver = function () {
-  $('.box').on('click')
+  $('.box').off('click')
   playerMove.game.over = true
-}
-
-const gameIsOver = () => {
-  console.log('done')
 }
 
 const checkForWin = function () {
@@ -106,6 +97,5 @@ module.exports = {
     onNewGame,
     onChooseSquare,
     checkForWin,
-    gameOver,
-    // startNewGame
+    gameOver
 }

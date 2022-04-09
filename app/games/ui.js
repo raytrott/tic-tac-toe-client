@@ -1,7 +1,6 @@
 'use strict'
 
 const store = require('../store.js')
-const checkForWin = require('./events.js')
 
 const onNewGameSuccess = function (response) {
     $('#game-display').html('<h4><i>Game initialized!</i></h4><p>X goes first!</p>')
@@ -10,6 +9,7 @@ const onNewGameSuccess = function (response) {
     store.game = response.game
     store.gameId = response.game._id
     store.game.cells = response.game.cells
+    store.game.over = response.game.over
     store.currentPlayer = 'X'
     console.log(store.game)
 }
