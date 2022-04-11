@@ -22,3 +22,37 @@ body {
     align-items: center;
     font-size: 75px;
 }
+
+#6 {
+    margin-bottom: 10px;
+}
+
+#7 {
+    margin-bottom: 10px;
+}
+
+#8 {
+    margin-bottom: 10px;
+}
+
+.game-on {
+    cursor:pointer;
+}
+
+.occupied {
+    cursor:default;
+}
+
+.game-over {
+    cursor:default;
+}
+
+#view-instructions:hover {
+    text-decoration: underline;
+    cursor:pointer;
+}
+
+#view-account:hover {
+    text-decoration: underline;
+    cursor:pointer;
+}

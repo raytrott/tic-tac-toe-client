@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Tic Tac Toe</title>
+      <title>Tic Tac Toe!</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -14,24 +14,29 @@
       <script src="./app/app.js"></script>
       <link rel="stylesheet" type="text/css" href="./app/styles/index.css"/>
     </head>
+
     <body>
+
       <h1>Tic Tac Toe!</h1>
-      <h3>How to Play</h3>
-      <p>First player to get 3 in a row wins!<br>
-        If no player gets 3 in a row, game is a tie.<br><br>
-        To start a new game, <strong>first</strong> create an account, <strong>then</strong> sign in.<br>
-        Then click the New Game button below to launch the game!<br>
-        X goes first, O goes second.<br>
-      </p><br>
+      <p>To start a new game, first <strong>create an account</strong>, then <strong>sign in</strong> under Account below.<br>
+      Then click the New Game button to launch the game!</p>
+
+      <p><strong>How to Play [<span id="view-instructions">show</span>]</strong></p>
+
+      <div id="instructions" class="hidden">
+        <p>First player to get 3 in a row wins!<br>
+        If no player gets 3 in a row, game is a tie.<br>
+        X goes first, O goes second.</p>
+      </div>
 
       <section id="new-game">
         <h4>Let's Play!</h4>
-        <p>Click the button below to start a new game!</p>
-        <button id="new-game-button">New Game</button>
+        <!-- <p>Click the button to start a new game!</p> -->
+        <button id="new-game-button">Start a New Game</button>
         <br><br>
       </section>
 
-      <section id="game-display"></section><br>
+      <section id="game-display"></section>
       
       <div class="container" id="game-board">
         <div class="row">
@@ -43,54 +48,53 @@
           <div id="5" class="col-4 box border border-end-0 border-4" data-cell-index="5"></div><br>
           <div id="6" class="col-4 box border border-bottom-0 border-start-0 border-4" data-cell-index="6"></div>
           <div id="7" class="col-4 box border border-bottom-0 border-4" data-cell-index="7"></div>
-          <div id="8" class="col-4 box border border-bottom-0 border-end-0 border-4" data-cell-index="8"></div>
+          <div id="8" class="col-4 box border border-bottom-0 border-end-0 border-4 margin-bottom-1" data-cell-index="8"></div>
         </div>
       </div>
 
+      <br><p><strong>Account [<span id="view-account">hide</span>]</strong></p>
+      <div id="auth-display"></div>
 
-      <br><br>
-      <section id="account-management">
-        <h3>Account Management</h3>
-        <section id="auth-display"></section>
-      </section>
+      <section id="account-management" class="showing">
 
-      <section id="sign-up">
-        <h4>Sign Up</h4>
-        <p>New here? Create an account to get started.</p>
-        <form id="sign-up-form">
-          <input name="credentials[email]" type="email" placeholder="Email">
-          <input name="credentials[password]" type="password" placeholder="Password">
-          <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password">
-          <button type="submit">Sign up</button>
-        </form><br>
-      </section>
+        <section id="sign-up">
+          <p><strong>Sign Up</strong><br>
+          New here? Create an account to get started.</p>
+          <form id="sign-up-form">
+            <input name="credentials[email]" type="email" placeholder="Email"><br><br>
+            <input name="credentials[password]" type="password" placeholder="Password"><br><br>
+            <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password"><br><br>
+            <button type="submit">Sign up</button>
+          </form><br>
+        </section>
 
-      <section id="sign-in">
-        <h4>Sign In</h4>
-        <p>Have an account? Sign in below to start playing!</p>
-        <form id="sign-in-form">
-          <input name="credentials[email]" type="email" placeholder="Email">
-          <input name="credentials[password]" type="password" placeholder="Password">
-          <button type="submit">Sign In</button>
-        </form><br>
-      </section>
-    
-      <section id="change-password">
-        <h4>Change Password</h4>
-        <p>If my password was "password123", I'd wanna change it too....</p>
-        <form id="change-password-form">
-          <input name="passwords[old]" type="password" placeholder="Current password">
-          <input name="passwords[new]" type="password" placeholder="New password">
-          <button type="submit">Change Password</button>
-        </form><br><br>
-      </section>
+        <section id="sign-in">
+          <p><strong>Sign In</strong><br>
+          Have an account? Sign in below to start playing!</p>
+          <form id="sign-in-form">
+            <input name="credentials[email]" type="email" placeholder="Email"><br><br>
+            <input name="credentials[password]" type="password" placeholder="Password"><br><br>
+            <button type="submit">Sign In</button>
+          </form><br>
+        </section>
+      
+        <section id="change-password">
+          <p><strong>Change Password</strong><br>
+          A combo of letters, numbers, and symbols is most secure.</p>
+          <form id="change-password-form">
+            <input name="passwords[old]" type="password" placeholder="Current password"><br><br>
+            <input name="passwords[new]" type="password" placeholder="New password"><br><br>
+            <button type="submit">Change Password</button>
+          </form><br>
+        </section>
 
-      <section id="sign-out">
-        <h4>Account Sign Out</h4>
-        <p>All done? Sign out below.</p>
-        <button id="sign-out-button">Sign Out</button><br><br>
+        <section id="sign-out">
+          <p><strong>Sign Out</strong><br>
+          All done? Sign out below.</p>
+          <button id="sign-out-button">Sign Out</button><br><br>
+        </section>
       </section>
-
+      
     </body>
 
 </html>

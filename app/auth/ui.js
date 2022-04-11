@@ -12,14 +12,14 @@ const onSignUpFailure = function () {
 }
 
 const onSignInSuccess = function (response) {
-    $('#auth-display').html('<p>User sign in successful!</p>')
+    $('#auth-display').html('<p class="display-text">User sign in successful!</p>')
+    $('.display-text').fadeOut(5000)
     $('form').trigger('reset')
     $('#new-game').show()
     $('#change-password').show()
     $('#sign-out').show()
     $('#sign-up').hide()
     $('#sign-in').hide()
-    console.log(response)
     store.user = response.user
 }
 
@@ -28,7 +28,8 @@ const onSignInFailure = function () {
 }
 
 const onChangePasswordSuccess = function () {
-    $('#auth-display').html('<p>Password changed successfully!</p>')
+    $('#auth-display').html('<p class="display-text">Password changed successfully!</p>')
+    $('.display-text').fadeOut(5000)
     $('form').trigger('reset')
 }
 
@@ -37,14 +38,17 @@ const onChangePasswordFailure = function () {
 }
 
 const onSignOutSuccess = function () {
-    $('#auth-display').html('<p>Sign out successful!</p>')
+    $('#auth-display').html('<p class="display-text">Sign out successful!</p>')
+    $('.display-text').fadeOut(5000)
     $('form').trigger('reset')
     $('#change-password').hide()
     $('#sign-out').hide()
     $('#new-game').hide()
+    $('#game-board').hide()
+    // hide upon sign out 
+    $('#game-display').hide()
     $('#sign-up').show()
     $('#sign-in').show()
-    $('#game-board').hide()
 }
 
 const onSignOutFailure = function () {

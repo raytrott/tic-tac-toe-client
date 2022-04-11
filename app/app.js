@@ -9,6 +9,10 @@ $(() => {
   $('#new-game').hide()
   $('#change-password').hide()
   $('#sign-out').hide()
+
+  $('#instructions').hide()
+  // $('#account-management').hide()
+
 })
 
 // Auth
@@ -22,4 +26,10 @@ $(() => {
 // Game
 $(() => {
   $('#new-game-button').on('click', gamesEvents.onNewGame)
+})
+
+// Show/Hide
+$(() => {
+  $('#view-instructions').on('click', gamesEvents.onShowHideInstructions)
+  $('#view-account').on('click', gamesEvents.onShowHideAccount)
 })
