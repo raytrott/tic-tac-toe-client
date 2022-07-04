@@ -45,8 +45,8 @@ Some user stories for this project:
 
 ## About
 
-Thanks for checking out my work! My name is Ray and I'm an aspiring software engineer currently studying in General Assembly's full-time software engineering program. 
+Thanks for checking out my work! My name is Ray and I'm early-career software engineer. I completed this project as part of General Assembly's full-time software engineering program, from which I graduated and earned my certificate of completion in June 2022. 
 
-You can checkout more of my work on [GitHub](https://github.com/raytrott). If you'd like to connect, send me an email at <ray.trott@outlook.com> or find me on [LinkedIn](https://www.linkedin.com/in/ray-trott/) and [Twitter](https://twitter.com/raytrott_)!
+You can checkout more of my work on [GitHub](https://github.com/raytrott). If you'd like to connect, [send me an email](mailto:raytrottdev@gmail.com) or find me on [LinkedIn](https://www.linkedin.com/in/ray-trott/) and [Twitter](https://twitter.com/raytrott_)!
 
 *Cheers!*
