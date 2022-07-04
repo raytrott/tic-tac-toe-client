@@ -9,9 +9,7 @@ $(() => {
   $('#new-game').hide()
   $('#change-password').hide()
   $('#sign-out').hide()
-
   $('#instructions').hide()
-  // $('#account-management').hide()
 
 })
 

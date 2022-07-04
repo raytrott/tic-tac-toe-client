@@ -42,6 +42,7 @@ const onNewGame = function () {
     .then((response) => gamesUi.onNewGameSuccess(response))
     .catch(() => gamesUi.onNewGameFailure())
   } else {
+    $('.box').addClass('game-on')
     $('.box').on('click', onChooseSquare)
     gamesApi.newGame()
     .then((response) => gamesUi.onNewGameSuccess(response))
