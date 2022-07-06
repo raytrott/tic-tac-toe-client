@@ -43,7 +43,7 @@ Some user stories for this project:
 - As a user, I can see how many times I've won or lost.
 - As a user, I can change my game choice if I change my mind because I like to second guess myself.
 
-## About
+## About Me
 
 Thanks for checking out my work! My name is Ray and I'm a full-stack software engineer. I completed this project as part of General Assembly's full-time Software Engineering Immersive boot camp, from which I graduated and earned my Certificate of Completion in June 2022. 
 
