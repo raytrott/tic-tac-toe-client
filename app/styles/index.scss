@@ -1,0 +1,57 @@
+@import '~bootstrap/scss/bootstrap';
+
+body {
+    background-color: lightslategray;
+    margin: 25px;
+    text-align: center;
+    color: white;
+}
+
+#game-board {
+    display: grid;
+    width: 300px;
+    height: 300px;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 75px;
+}
+
+#6 {
+    margin-bottom: 10px;
+}
+
+#7 {
+    margin-bottom: 10px;
+}
+
+#8 {
+    margin-bottom: 10px;
+}
+
+.game-on {
+    cursor:pointer;
+}
+
+.occupied {
+    cursor:default;
+}
+
+.game-over {
+    cursor:default;
+}
+
+#view-instructions:hover {
+    text-decoration: underline;
+    cursor:pointer;
+}
+
+#view-account:hover {
+    text-decoration: underline;
+    cursor:pointer;
+}
